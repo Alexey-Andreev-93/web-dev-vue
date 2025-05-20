@@ -2,18 +2,26 @@
 import { ref } from 'vue'
 import CounterButton from './components/CounterButton.vue';
 
-const increment = () => count.value++
+const count = ref(0)
+
+const increment = () => {
+  console.log(count.value++)
+}
 const decrement = () => count.value--
 const reset = () => count.value = 0
 const addTen = () => count.value += 10
 const removeFive = () => count.value -= 5
-const mupliplyTwo = () => count.value * 2
-const count = ref(0)
+const multiplyTwo = () => count.value ** 2
+
 </script>
 
 <template>
   <div>
-    <h1 :class="{'red-text' : count >= 10}">Счётчик: {{ count }}</h1>
+    <h1
+     :class="{'red-text' : count >= 10}"
+    >
+      Счётчик: {{ count }}
+    </h1>
 
     <div class="buttons">
       <CounterButton
@@ -43,13 +51,13 @@ const count = ref(0)
       <CounterButton
         :action="() => reset"
         label="Сброс"
-        color="eb0c0c"
+        color="green"
       />
 
       <CounterButton
-        :action="mupliplyTwo"
+        :action="multiplyTwo"
         label="* 2"
-        color="e84212"
+        color="violet"
       />
     </div>
   </div>

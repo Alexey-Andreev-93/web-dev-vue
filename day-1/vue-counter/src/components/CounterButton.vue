@@ -1,24 +1,24 @@
 <script setup>
     defineProps({
-        action: {
+        action: {  // Функция-обработчик
             type: Function,
             required: true
         },
-        label: {
+        label: {   // Текст на кнопке
             type: String,
             default: 'Кнопка'
         },
-        color: {
+        color: {   // Необязательный параметр
             type: String,
             default: '#42b983'
         }
-    })
+        })
 </script>
 
 <template>
     <button
         @click="action()"
-        :style="{baclgroundColor: color}"
+        :style="{backgroundColor: color}"
         class="btn"
     >
         {{ label }}
